@@ -21,7 +21,9 @@ fn main() -> io::Result<()> {
             count += 1;
             freq.insert(letter, count);
         } else {
-            freq.insert(letter, 0);
+            if letter.is_ascii_alphabetic() {
+                freq.insert(letter, 1);
+            }
         }
     }
 
